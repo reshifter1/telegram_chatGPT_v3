@@ -3,8 +3,8 @@ import openai
 import time
 from googletrans import Translator
 
-bot = telebot.TeleBot("6235663187:AAFEzS3TWiWHJd13urX07Srcw_jad5N5cIU")
-openai.api_key = "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"
+bot = telebot.TeleBot("6282182565:AAFFt_rjHhh9gf1bwr8LQAR7DmH81tWf24A")
+openai.api_key = "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"
 model = "text-davinci-003"
 stop_symbols = "###"
 

@@ -3,8 +3,8 @@ import openai
 import time
 from googletrans import Translator
 
-bot = telebot.TeleBot("6235663187:AAFEzS3TWiWHJd13urX07Srcw_jad5N5cIU")
-openai.api_key = "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"
+bot = telebot.TeleBot("6282182565:AAFFt_rjHhh9gf1bwr8LQAR7DmH81tWf24A")
+openai.api_key = "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"
 model = "text-davinci-003"
 stop_symbols = "###"
 
@@ -29,7 +29,7 @@ def _process_rq(user_id, rq):
             user['last_prompt_time'] = 0
             user['last_text'] = ''
 
-        if rq and len(rq) > 0 and len(rq) < 1000:
+        if rq and len(rq) > 0 and len(rq) < 3000:
             inc_detect = translator.detect(rq)
             if inc_detect.lang == 'ru':
                 eng_rq = translator.translate(rq, dest='en', src='ru').text
@@ -39,7 +39,7 @@ def _process_rq(user_id, rq):
                 print(f">>> ({user_id}) {rq}")
 
             # truncate to 1000 symbols from the end
-            prompt = f"{last_text}Q: {rq} ->"[-1000:]
+            prompt = f"{last_text}Q: {rq} ->"[-3000:]
             print("Sending to OpenAI: " + prompt)
             completion = openai.Completion.create(
                 engine=model, prompt=prompt, max_tokens=256, stop=[stop_symbols], temperature=0.7)
