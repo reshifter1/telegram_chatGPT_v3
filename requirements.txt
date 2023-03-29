@@ -1,4 +1,0 @@
-pyTelegramBotAPI==4.9.0
-openai
-googletrans==3.1.0
-pandas==1.5.3
